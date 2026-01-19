@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sorvetes artesanais 100% naturais em Mogi Mirim. Peça agora e receba em casa! Sabores únicos, ingredientes selecionados, zero conservantes.">
+    <title>Congela Mente - Sorvetes Artesanais 100% Naturais | Mogi Mirim</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Squeleton CSS -->
+    <link rel="stylesheet" href="https://cdn.hiperwp.com.br/squeleton.v4.min.css">
+
+    <!-- Squeleton JavaScript (Head) -->
+    <script src="https://cdn.hiperwp.com.br/squeleton-main.v4.min.js"></script>
+
+    <style>
+        /* Paleta de cores da marca */
+        :root {
+            --cor-primaria: #D94A7A;
+            --cor-secundaria: #2CA89C;
+            --cor-destaque: #FFE66D;
+            --cor-roxo: #9D4EDD;
+            --cor-laranja: #FF9E6D;
+            --cor-texto: #2D3436;
+            --cor-texto-claro: #636E72;
+            --cor-fundo: #FFF;
+            --cor-fundo-secao: #FFF5F8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            color: var(--cor-texto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section com animação de partículas */
+        .hero-section {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before,
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-section::before {
+            top: -15%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: white;
+            animation-delay: 0s;
+        }
+
+        .hero-section::after {
+            bottom: -20%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.15);
+            animation-delay: 3s;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Badge de destaque pulsante */
+        .badge-natural {
+            background: var(--cor-destaque);
+            color: var(--cor-texto);
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 14px;
+            box-shadow: 0 8px 25px rgba(255, 230, 109, 0.4);
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(255, 230, 109, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 10px 35px rgba(255, 230, 109, 0.6); }
+        }
+
+        /* Cards de sabores com GLASSMORPHISM e hover 3D */
+        .sabor-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid rgba(255, 107, 157, 0.1);
+            height: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .sabor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sabor-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 60px rgba(255, 107, 157, 0.25);
+            border-color: var(--cor-primaria);
+        }
+
+        .sabor-card:hover::before {
+            opacity: 1;
+        }
+
+        .sabor-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .sabor-card:hover .sabor-img {
+            transform: scale(1.1);
+        }
+
+        .tag-natural {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Botão CTA principal com efeito neon */
+        .btn-cta {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, #E5527F 100%);
+            color: white;
+            font-weight: 700;
+            padding: 20px 45px;
+            border-radius: 50px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(255, 107, 157, 0.4);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-cta:hover::before {
+            left: 100%;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--cor-primaria);
+            border: 2px solid var(--cor-primaria);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--cor-primaria);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Seção de benefícios com gradiente animado */
+        .beneficio-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            margin: 0 auto 20px;
+            box-shadow: 0 15px 35px rgba(255, 107, 157, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .beneficio-icon:hover {
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.5);
+        }
+
+        /* Countdown Timer - INOVAÇÃO */
+        .countdown-container {
+            background: linear-gradient(135deg, #FF6B9D 0%, #9D4EDD 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            padding: 20px 30px;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .countdown-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            display: block;
+            line-height: 1;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .countdown-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Seção de Planos - GAMIFICAÇÃO */
+        .plano-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            height: 100%;
+        }
+
+        .plano-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+        }
+
+        .plano-card.destaque {
+            border-color: var(--cor-primaria);
+            transform: scale(1.05);
+            box-shadow: 0 25px 60px rgba(255, 107, 157, 0.3);
+        }
+
+        .plano-card.destaque::after {
+            content: '✨ MAIS POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--cor-destaque);
+            color: var(--cor-texto);
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: 800;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 15px rgba(255, 230, 109, 0.5);
+        }
+
+        .plano-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+        }
+
+        .plano-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .plano-economia {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .plano-beneficio {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .plano-beneficio .iccon-check-1 {
+            color: #10B981;
+            font-size: 20px;
+        }
+
+        /* Depoimentos com efeito de vidro */
+        .depoimento-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--cor-primaria);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .depoimento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+        }
+
+        .estrelas {
+            color: #FFD700;
+            font-size: 22px;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Footer moderno */
+        footer {
+            background: linear-gradient(135deg, #2D3436 0%, #1e272e 100%);
+            color: white;
+        }
+
+        footer a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--cor-primaria);
+            transform: translateX(5px);
+        }
+
+        /* Animações */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        /* Responsivo - ajustes de texto mobile */
+        @media (max-width: 639px) {
+            .hero-section h1 {
+                font-size: 36px !important;
+                line-height: 1.2;
+            }
+
+            .hero-section .fs-10 {
+                font-size: 16px !important;
+            }
+
+            .btn-cta {
+                padding: 18px 35px;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            .countdown-timer {
+                gap: 15px;
+            }
+
+            .countdown-item {
+                padding: 15px 20px;
+                min-width: 80px;
+            }
+
+            .countdown-number {
+                font-size: 36px;
+            }
+
+            .plano-card.destaque {
+                transform: scale(1);
+            }
+        }
+
+        /* Parallax suave */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SEÇÃO HERO - Primeira impressão é tudo -->
+    <section class="hero-section h-100vh f-items-center f-justify-center p-30-lr xs-p-20-lr">
+        <div class="hero-content container text-center">
+            <div class="wow fadeInDown">
+                <span class="badge-natural m-15-b">🌱 100% INGREDIENTES NATURAIS</span>
+            </div>
+
+            <h1 class="fs-15 fw-800 m-20-b wow fadeInUp xs-m-15-b" data-wow-delay="0.2s" style="text-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                O Sorvete Artesanal<br>Mais Irresistível de Mogi Mirim
+            </h1>
+
+            <p class="fs-10 fw-400 m-30-b opacity-9 w-max-700px m-auto-lr wow fadeInUp" data-wow-delay="0.4s">
+                Feito com amor, sem conservantes, sem químicas. Só ingredientes naturais que você pode SENTIR em cada colherada. Peça agora e descubra o verdadeiro sabor da felicidade!
+            </p>
+
+            <div class="wow fadeInUp" data-wow-delay="0.6s">
+                <a href="#countdown" class="btn-cta m-10-b">
+                    🎉 Ver Promoção 24H
+                </a>
+                <div class="m-15-t opacity-9 fs-7">
+                    ⚡ Entrega expressa em toda Mogi Mirim
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO COUNTDOWN - PROMOÇÃO 24H -->
+    <section id="countdown" class="p-80-tb xs-p-40-tb" style="background: linear-gradient(180deg, var(--cor-fundo-secao) 0%, white 100%);">
+        <div class="container">
+            <div class="countdown-container text-center wow zoomIn">
+                <div class="fs-14 fw-800 m-10-b" style="color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.2);">⚡ PROMOÇÃO RELÂMPAGO 24H</div>
+                <p class="fs-10 fw-600 m-20-b" style="color: rgba(255,255,255,0.95);">
+                    ÚLTIMA CHANCE! Até <strong>30% OFF</strong> em todos os sabores + <strong>FRETE GRÁTIS</strong>
+                </p>
+
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-item wow fadeInUp" data-wow-delay="0.1s">
+                        <span class="countdown-number" id="hours">23</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item wow fadeInUp" data-wow-delay="0.2s">
+                        <span class="countdown-number" id="minutes">59</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item wow fadeInUp" data-wow-delay="0.3s">
+                        <span class="countdown-number" id="seconds">59</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+
+                <a href="#sabores" class="btn-cta m-30-t" style="background: white; color: var(--cor-roxo);">
+                    🔥 Aproveitar Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE BENEFÍCIOS -->
+    <section class="p-80-tb xs-p-40-tb">
+        <div class="container">
+            <div class="text-center m-50-b xs-m-30-b">
+                <h2 class="fs-13 fw-700 m-15-b wow fadeInUp">Por Que a Congela Mente é Diferente?</h2>
+                <p class="fs-9 fw-400" style="color: var(--cor-texto-claro);">Não é apenas sorvete. É uma experiência que você vai querer repetir!</p>
+            </div>
+
+            <div class="row gap-30 xs-gap-25">
+                <div class="c-xs-12 c-md-4 text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="beneficio-icon">🌿</div>
+                    <h3 class="fs-10 fw-700 m-15-b">100% Natural</h3>
+                    <p class="fs-8" style="color: var(--cor-texto-claro);">
+                        Zero conservantes, zero corantes artificiais. Só ingredientes de verdade que você reconhece.
+                    </p>
+                </div>
+
+                <div class="c-xs-12 c-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="beneficio-icon">👨‍🍳</div>
+                    <h3 class="fs-10 fw-700 m-15-b">Artesanal de Verdade</h3>
+                    <p class="fs-8" style="color: var(--cor-texto-claro);">
+                        Feito em pequenos lotes, com atenção aos mínimos detalhes. Cremosidade incomparável!
+                    </p>
+                </div>
+
+                <div class="c-xs-12 c-md-4 text-center wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="beneficio-icon">🚀</div>
+                    <h3 class="fs-10 fw-700 m-15-b">Entrega Expressa</h3>
+                    <p class="fs-8" style="color: var(--cor-texto-claro);">
+                        Pediu, chegou! Fresquinho na sua porta em qualquer lugar de Mogi Mirim.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE SABORES COM IMAGENS REAIS -->
+    <section id="sabores" class="p-80-tb xs-p-40-tb render-auto" style="background: var(--cor-fundo-secao);">
+        <div class="container">
+            <div class="text-center m-50-b xs-m-30-b">
+                <span class="badge-natural m-15-b wow fadeInDown">✨ NOSSOS SABORES EXCLUSIVOS</span>
+                <h2 class="fs-13 fw-700 m-15-b wow fadeInUp">Escolha Seu Favorito (ou Vários!)</h2>
+                <p class="fs-9 fw-400 wow fadeInUp" style="color: var(--cor-texto-claro);">
+                    Cada sabor é uma experiência única. Impossível escolher apenas um!
+                </p>
+            </div>
+
+            <div class="row gap-30">
+                <!-- Sabor 1 - Chocolate Belga -->
+                <div class="c-xs-12 c-sm-6 c-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="sabor-card">
+                        <div class="ps-relative">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=85" alt="Sorvete de Chocolate Belga" class="sabor-img">
+                            <div class="ps-absolute top-0 right-0 p-15-all">
+                                <span class="tag-natural">Natural</span>
+                            </div>
+                        </div>
+                        <div class="p-25-all">
+                            <h3 class="fs-10 fw-700 m-10-b">🍫 Chocolate Belga Premium</h3>
+                            <p class="fs-8 m-15-b" style="color: var(--cor-texto-claro);">
+                                Cacau 70% importado, cremoso e intenso. Um clássico que nunca decepciona!
+                            </p>
+                            <div class="d-flex f-justify-between f-items-center">
+                                <div>
+                                    <span class="fs-7" style="color: #999; text-decoration: line-through;">R$ 28,90</span>
+                                    <span class="fs-10 fw-800 m-5-l" style="color: var(--cor-primaria);">R$ 20,23</span>
+                                </div>
+                                <button class="btn-secondary xs-w-100" onclick="pedirSabor('Chocolate Belga Premium')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sabor 2 - Morango da Horta -->
+                <div class="c-xs-12 c-sm-6 c-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="sabor-card">
+                        <div class="ps-relative">
+                            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=85" alt="Sorvete de Morango Natural" class="sabor-img">
+                            <div class="ps-absolute top-0 right-0 p-15-all">
+                                <span class="tag-natural">Natural</span>
+                            </div>
+                        </div>
+                        <div class="p-25-all">
+                            <h3 class="fs-10 fw-700 m-10-b">🍓 Morango da Horta</h3>
+                            <p class="fs-8 m-15-b" style="color: var(--cor-texto-claro);">
+                                Morangos frescos colhidos na região. Você sente os pedaços de fruta!
+                            </p>
+                            <div class="d-flex f-justify-between f-items-center">
+                                <div>
+                                    <span class="fs-7" style="color: #999; text-decoration: line-through;">R$ 26,90</span>
+                                    <span class="fs-10 fw-800 m-5-l" style="color: var(--cor-primaria);">R$ 18,83</span>
+                                </div>
+                                <button class="btn-secondary xs-w-100" onclick="pedirSabor('Morango da Horta')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sabor 3 - Pistache Siciliano -->
+                <div class="c-xs-12 c-sm-6 c-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="sabor-card">
+                        <div class="ps-relative">
+                            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=800&q=85" alt="Sorvete de Pistache Artesanal" class="sabor-img">
+                            <div class="ps-absolute top-0 right-0 p-15-all">
+                                <span class="tag-natural">Natural</span>
+                            </div>
+                        </div>
+                        <div class="p-25-all">
+                            <h3 class="fs-10 fw-700 m-10-b">🥜 Pistache Siciliano</h3>
+                            <p class="fs-8 m-15-b" style="color: var(--cor-texto-claro);">
+                                Sofisticado e marcante. Para paladares exigentes que amam exclusividade.
+                            </p>
+                            <div class="d-flex f-justify-between f-items-center">
+                                <div>
+                                    <span class="fs-7" style="color: #999; text-decoration: line-through;">R$ 32,90</span>
+                                    <span class="fs-10 fw-800 m-5-l" style="color: var(--cor-primaria);">R$ 23,03</span>
+                                </div>
+                                <button class="btn-secondary xs-w-100" onclick="pedirSabor('Pistache Siciliano')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sabor 4 - Coco Cremoso -->
+                <div class="c-xs-12 c-sm-6 c-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="sabor-card">
+                        <div class="ps-relative">
+                            <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=800&q=85" alt="Sorvete de Coco Natural" class="sabor-img">
+                            <div class="ps-absolute top-0 right-0 p-15-all">
+                                <span class="tag-natural">Natural</span>
+                            </div>
+                        </div>
+                        <div class="p-25-all">
+                            <h3 class="fs-10 fw-700 m-10-b">🥥 Coco Cremoso</h3>
+                            <p class="fs-8 m-15-b" style="color: var(--cor-texto-claro);">
+                                Tropical e refrescante! Feito com polpa de coco verde. Uma viagem ao paraíso!
+                            </p>
+                            <div class="d-flex f-justify-between f-items-center">
+                                <div>
+                                    <span class="fs-7" style="color: #999; text-decoration: line-through;">R$ 24,90</span>
+                                    <span class="fs-10 fw-800 m-5-l" style="color: var(--cor-primaria);">R$ 17,43</span>
+                                </div>
+                                <button class="btn-secondary xs-w-100" onclick="pedirSabor('Coco Cremoso')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sabor 5 - Doce de Leite Argentino -->
+                <div class="c-xs-12 c-sm-6 c-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="sabor-card">
+                        <div class="ps-relative">
+                            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=800&q=85" alt="Sorvete de Doce de Leite" class="sabor-img">
+                            <div class="ps-absolute top-0 right-0 p-15-all">
+                                <span class="tag-natural">Natural</span>
+                            </div>
+                        </div>
+                        <div class="p-25-all">
+                            <h3 class="fs-10 fw-700 m-10-b">🍮 Doce de Leite Argentino</h3>
+                            <p class="fs-8 m-15-b" style="color: var(--cor-texto-claro);">
+                                Receita tradicional, textura aveludada. Pura nostalgia em cada colherada!
+                            </p>
+                            <div class="d-flex f-justify-between f-items-center">
+                                <div>
+                                    <span class="fs-7" style="color: #999; text-decoration: line-through;">R$ 27,90</span>
+                                    <span class="fs-10 fw-800 m-5-l" style="color: var(--cor-primaria);">R$ 19,53</span>
+                                </div>
+                                <button class="btn-secondary xs-w-100" onclick="pedirSabor('Doce de Leite Argentino')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sabor 6 - Limão Siciliano -->
+                <div class="c-xs-12 c-sm-6 c-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="sabor-card">
+                        <div class="ps-relative">
+                            <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=800&q=85" alt="Sorvete de Limão Siciliano" class="sabor-img">
+                            <div class="ps-absolute top-0 right-0 p-15-all">
+                                <span class="tag-natural">Natural</span>
+                            </div>
+                        </div>
+                        <div class="p-25-all">
+                            <h3 class="fs-10 fw-700 m-10-b">🍋 Limão Siciliano</h3>
+                            <p class="fs-8 m-15-b" style="color: var(--cor-texto-claro);">
+                                Cítrico equilibrado e refrescante. Perfeito para os dias quentes!
+                            </p>
+                            <div class="d-flex f-justify-between f-items-center">
+                                <div>
+                                    <span class="fs-7" style="color: #999; text-decoration: line-through;">R$ 25,90</span>
+                                    <span class="fs-10 fw-800 m-5-l" style="color: var(--cor-primaria);">R$ 18,13</span>
+                                </div>
+                                <button class="btn-secondary xs-w-100" onclick="pedirSabor('Limão Siciliano')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE PLANOS - GAMIFICAÇÃO E FIDELIZAÇÃO -->
+    <section class="p-80-tb xs-p-40-tb render-auto">
+        <div class="container">
+            <div class="text-center m-50-b xs-m-30-b">
+                <h2 class="fs-13 fw-700 m-15-b wow fadeInUp">🎯 Planos Exclusivos com Super Benefícios</h2>
+                <p class="fs-9 fw-400 wow fadeInUp" style="color: var(--cor-texto-claro);">
+                    Quanto mais você ama sorvete, mais você economiza! Escolha seu plano perfeito:
+                </p>
+            </div>
+
+            <div class="row gap-30">
+                <!-- Plano 1 - Explorador -->
+                <div class="c-xs-12 c-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="plano-card">
+                        <div class="plano-icon text-center">🍦</div>
+                        <h3 class="fs-11 fw-700 m-10-b text-center">Plano Explorador</h3>
+                        <p class="text-center m-20-b" style="color: var(--cor-texto-claro); font-size: 14px;">Perfeito para quem está começando a jornada!</p>
+
+                        <div class="text-center m-20-b">
+                            <div class="plano-economia">Economize 10%</div>
+                        </div>
+
+                        <div class="fs-13 fw-800 text-center m-20-b" style="color: var(--cor-primaria);">
+                            R$ 89,90<span class="fs-7 fw-400">/mês</span>
+                        </div>
+
+                        <div class="m-20-b">
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>4 potes/mês</strong> (500ml cada)</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Troca de sabor a cada entrega</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Frete grátis acima de R$ 50</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Acesso a sabores sazonais</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>10% desconto em compras avulsas</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-cta w-100" onclick="assinarPlano('Explorador')">Assinar Agora</button>
+                    </div>
+                </div>
+
+                <!-- Plano 2 - Viciado (DESTAQUE) -->
+                <div class="c-xs-12 c-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="plano-card destaque">
+                        <div class="plano-icon text-center">🍨</div>
+                        <h3 class="fs-11 fw-700 m-10-b text-center">Plano Viciado</h3>
+                        <p class="text-center m-20-b" style="color: var(--cor-texto-claro); font-size: 14px;">Para verdadeiros amantes de sorvete!</p>
+
+                        <div class="text-center m-20-b">
+                            <div class="plano-economia">Economize 20%</div>
+                        </div>
+
+                        <div class="fs-13 fw-800 text-center m-20-b" style="color: var(--cor-primaria);">
+                            R$ 159,90<span class="fs-7 fw-400">/mês</span>
+                        </div>
+
+                        <div class="m-20-b">
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>8 potes/mês</strong> (500ml cada)</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Troca de sabor a cada entrega</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>Frete SEMPRE grátis</strong></span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Acesso antecipado a novos sabores</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>20% desconto em compras avulsas</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>1 pote EXTRA grátis no aniversário</strong></span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Grupo VIP no WhatsApp</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-cta w-100" onclick="assinarPlano('Viciado')">Assinar Agora</button>
+                    </div>
+                </div>
+
+                <!-- Plano 3 - Família Feliz -->
+                <div class="c-xs-12 c-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="plano-card">
+                        <div class="plano-icon text-center">🎉</div>
+                        <h3 class="fs-11 fw-700 m-10-b text-center">Plano Família Feliz</h3>
+                        <p class="text-center m-20-b" style="color: var(--cor-texto-claro); font-size: 14px;">Sorvete pra família inteira nunca faltar!</p>
+
+                        <div class="text-center m-20-b">
+                            <div class="plano-economia">Economize 30%</div>
+                        </div>
+
+                        <div class="fs-13 fw-800 text-center m-20-b" style="color: var(--cor-primaria);">
+                            R$ 279,90<span class="fs-7 fw-400">/mês</span>
+                        </div>
+
+                        <div class="m-20-b">
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>16 potes/mês</strong> (500ml cada)</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Escolha até 6 sabores diferentes</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>Frete SEMPRE grátis</strong></span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Entrega prioritária (até 40min)</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>30% desconto em compras avulsas</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>2 potes EXTRAS no aniversário</strong></span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span>Cardápio personalizado mensal</span>
+                            </div>
+                            <div class="plano-beneficio">
+                                <span class="iccon-check-1"></span>
+                                <span><strong>Acesso a sabores EXCLUSIVOS</strong></span>
+                            </div>
+                        </div>
+
+                        <button class="btn-cta w-100" onclick="assinarPlano('Família Feliz')">Assinar Agora</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garantia e CTA adicional -->
+            <div class="text-center m-50-t wow fadeInUp">
+                <div class="p-30-all border-rd-12" style="background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); max-width: 700px; margin: 0 auto;">
+                    <div class="fs-10 fw-700 m-10-b">✅ Garantia de 100% Satisfação</div>
+                    <p class="fs-8" style="color: var(--cor-texto);">
+                        Não gostou? Cancele a qualquer momento sem burocracia. Mas temos certeza que você vai AMAR! 💕
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE DEPOIMENTOS -->
+    <section class="p-80-tb xs-p-40-tb render-auto" style="background: var(--cor-fundo-secao);">
+        <div class="container">
+            <div class="text-center m-50-b xs-m-30-b">
+                <h2 class="fs-13 fw-700 m-15-b wow fadeInUp">💬 O Que Nossos Clientes Dizem</h2>
+                <div class="estrelas">★★★★★</div>
+                <p class="fs-8 m-10-t" style="color: var(--cor-texto-claro);">Média de 4.9/5.0 baseada em 248+ avaliações verificadas</p>
+            </div>
+
+            <div class="row gap-30">
+                <div class="c-xs-12 c-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="depoimento-card">
+                        <div class="estrelas m-10-b">★★★★★</div>
+                        <p class="fs-8 m-15-b" style="font-style: italic;">
+                            "Melhor sorvete que já comi na vida! Você SENTE que é natural de verdade. O de chocolate é viciante. Já sou do Plano Viciado há 3 meses!"
+                        </p>
+                        <div class="fw-700">Marina S.</div>
+                        <div class="fs-7" style="color: var(--cor-texto-claro);">Assinante desde 2023</div>
+                    </div>
+                </div>
+
+                <div class="c-xs-12 c-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="depoimento-card">
+                        <div class="estrelas m-10-b">★★★★★</div>
+                        <p class="fs-8 m-15-b" style="font-style: italic;">
+                            "Comprei pro aniversário da minha filha e foi SUCESSO TOTAL! Todo mundo perguntou de onde era. A entrega chegou super rápido e gelado."
+                        </p>
+                        <div class="fw-700">Roberto C.</div>
+                        <div class="fs-7" style="color: var(--cor-texto-claro);">Centro, Mogi Mirim</div>
+                    </div>
+                </div>
+
+                <div class="c-xs-12 c-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="depoimento-card">
+                        <div class="estrelas m-10-b">★★★★★</div>
+                        <p class="fs-8 m-15-b" style="font-style: italic;">
+                            "Sou intolerante a conservantes e FINALMENTE achei um sorvete que posso comer sem medo! Qualidade absurda. Vale cada centavo!"
+                        </p>
+                        <div class="fw-700">Juliana M.</div>
+                        <div class="fs-7" style="color: var(--cor-texto-claro);">Jardim Modelo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CTA FINAL -->
+    <section class="p-80-tb xs-p-40-tb" style="background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%); color: white;">
+        <div class="container text-center">
+            <div class="wow fadeInUp">
+                <h2 class="fs-13 fw-700 m-20-b" style="text-shadow: 0 4px 20px rgba(0,0,0,0.1);">Pronto Para Se Apaixonar?</h2>
+                <p class="fs-10 m-30-b opacity-9">
+                    Faça seu pedido agora pelo WhatsApp e receba em até 60 minutos!<br>
+                    <strong>Promoção válida apenas nas próximas 24 horas!</strong>
+                </p>
+
+                <a href="https://wa.me/5519999999999?text=Olá!%20Quero%20aproveitar%20a%20promoção%2024h%20da%20Congela%20Mente!"
+                   target="_blank"
+                   class="btn-cta"
+                   style="background: white; color: var(--cor-primaria);">
+                    💬 Pedir pelo WhatsApp Agora
+                </a>
+
+                <div class="m-30-t">
+                    <div class="fs-9 fw-700 m-10-b">Ou ligue diretamente:</div>
+                    <a href="tel:1938011234" class="fs-11 fw-700" style="color: white; text-decoration: none;">
+                        📞 (19) 3801-1234
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="p-60-tb xs-p-40-tb">
+        <div class="container">
+            <div class="row gap-40">
+                <div class="c-xs-12 c-md-4 text-center">
+                    <div class="fs-12 fw-800 m-20-b" style="color: var(--cor-primaria);">Congela Mente</div>
+                    <p class="fs-8 m-20-b opacity-8">
+                        Sorvetes Artesanais 100% Naturais<br>
+                        Feitos com amor em Mogi Mirim - SP
+                    </p>
+                    <div class="fs-8">
+                        <a href="https://instagram.com" target="_blank" class="m-10-r">📱 Instagram</a>
+                        <a href="https://facebook.com" target="_blank">👍 Facebook</a>
+                    </div>
+                </div>
+
+                <div class="c-xs-12 c-md-4 text-center">
+                    <div class="fs-10 fw-700 m-20-b">Links Rápidos</div>
+                    <div class="d-flex f-col f-gap-10 f-items-center">
+                        <a href="#sabores">Nossos Sabores</a>
+                        <a href="#countdown">Promoções</a>
+                        <a href="#contato">Fazer Pedido</a>
+                        <a href="#">Trabalhe Conosco</a>
+                    </div>
+                </div>
+
+                <div class="c-xs-12 c-md-4 text-center">
+                    <div class="fs-10 fw-700 m-20-b">Contato</div>
+                    <div class="fs-8 opacity-8">
+                        📍 Rua das Sorveterias, 123<br>
+                        Centro - Mogi Mirim/SP<br><br>
+                        📞 (19) 3801-1234<br>
+                        📧 contato@congelamente.com.br
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t m-40-t p-20-t text-center" style="border-color: rgba(255,255,255,0.1);">
+                <div class="fs-7 opacity-6">
+                    &copy; 2026 Congela Mente - Sorvetes Artesanais. Todos os direitos reservados ao jonathan ribeiro<br>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Squeleton JavaScript (Footer) -->
+    <script src="https://cdn.hiperwp.com.br/squeleton-scripts.v4.min.js"></script>
+
+    <script>
+        // COUNTDOWN TIMER - Atualiza em tempo real
+        function updateCountdown() {
+            // Definir data final (24 horas a partir de amanhã 00:00)
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(23, 59, 59, 999);
+
+            const now = new Date().getTime();
+            const distance = tomorrow - now;
+
+            // Cálculos de tempo
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Atualizar elementos
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            // Se o countdown terminou
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdownTimer').innerHTML = '<div class="fs-11 fw-800" style="color: white;">⚠️ PROMOÇÃO ENCERRADA</div>';
+            }
+        }
+
+        // Atualizar a cada segundo
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Executar imediatamente
+
+        // Função para pedido de sabor específico
+        function pedirSabor(sabor) {
+            const mensagem = encodeURIComponent(`🎉 Olá! Quero aproveitar a PROMOÇÃO 24H e pedir o sabor: ${sabor}`);
+            window.open(`https://wa.me/5519999999999?text=${mensagem}`, '_blank');
+        }
+
+        // Função para assinatura de planos
+        function assinarPlano(plano) {
+            const mensagem = encodeURIComponent(`🎯 Olá! Quero assinar o PLANO ${plano.toUpperCase()} da Congela Mente!`);
+            window.open(`https://wa.me/5519999999999?text=${mensagem}`, '_blank');
+        }
+
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efeito parallax suave no scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-section::before, .hero-section::after');
+            parallaxElements.forEach(el => {
+                el.style.transform = `translateY(${scrolled * 0.5}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
