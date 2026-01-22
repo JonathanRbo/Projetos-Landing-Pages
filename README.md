@@ -1,61 +1,45 @@
-# Projetos-Landing-Pages
-Coleção de landing pages responsivas e modernas desenvolvidas com HTML, CSS e JavaScript, utilizando o framework Squeleton para componentes e animações.
+# Projetos Links - Galeria de Repositorios GitHub
 
-## 🚀 Projetos Incluídos
+## Tecnologias Utilizadas
+- HTML5
+- CSS3 (Variaveis CSS, Animacoes Keyframes)
+- JavaScript (Fetch API, Async/Await)
+- Squeleton CSS Framework
+- GitHub REST API
+- Google Fonts (Space Grotesk, JetBrains Mono)
 
-### 1. Sorveteria Congela Mente
-**Arquivo:** [sorveteria.html](sorveteria.html)
+## Funcionalidades Principais
+- **Busca Automatica**: Carrega repositorios via API GitHub
+- **Linguagens Coloridas**: Badge com cor especifica para cada linguagem
+- **Loading State**: Spinner enquanto carrega os dados
+- **Cards Interativos**: Hover com efeitos de elevacao e brilho
+- **Links de Acesso**: Botoes para repositorio e demo (GitHub Pages)
+- **Deteccao de Pages**: Identifica automaticamente se o repo tem GitHub Pages
 
-Landing page para uma sorveteria artesanal com:
-- Design vibrante com gradientes coloridos
-- Sistema de countdown para promoções
-- Cards de produtos com efeito glassmorphism
-- Planos de assinatura gamificados
-- Seção de depoimentos
-- Integração direta com WhatsApp
+## Informacoes Exibidas por Projeto
+- Nome do repositorio
+- Descricao
+- Estrelas e Forks
+- Linguagem principal
+- Todas as linguagens utilizadas (badges coloridas)
+- Link para repositorio
+- Link para demo (se disponivel)
 
-**Preview das funcionalidades:**
-- Countdown timer dinâmico
-- Animações ao scroll (WOW.js)
-- Efeitos hover 3D nos cards
-- Totalmente responsivo
+## Cores por Linguagem
+- JavaScript: Amarelo (#f1e05a)
+- TypeScript: Azul (#3178c6)
+- PHP: Roxo (#777bb4)
+- HTML: Laranja (#e34c26)
+- CSS: Roxo escuro (#563d7c)
+- Python: Azul (#3572a5)
+- E outras...
 
----
+## Design
+- Paleta de cores: Ciano (#00d4ff), Azul (#0066ff), Preto (#0a0a0a)
+- Tema escuro
+- Grid pattern no background
+- Cards com animacao de entrada escalonada
+- Layout responsivo em grid
 
-### 2. Biblioteca Digital
-**Arquivo:** [biblioteca.html](biblioteca.html)
-
-Landing page para sistema de biblioteca ou acervo digital.
-
----
-
-### 3. Ferramentas Stihl
-**Arquivo:** [ferramenta-stihl.html](ferramenta-stihl.html)
-
-Landing page para venda de ferramentas e equipamentos.
-
----
-
-### 4. Loterias
-**Arquivo:** [loterias.html](loterias.html)
-
-Landing page relacionada a sistema de loterias ou sorteios.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-### Framework CSS/JS
-- **Squeleton v4** - Framework CSS moderno com:
-  - Grid system de 12 colunas
-  - Classes utilitárias (spacing, flexbox, display)
-  - Animações WOW.js integradas
-  - Bibliotecas JS (HTMX, VanJS, Embla, VenoBox)
-
-### Fontes
-- **Google Fonts** - Poppins (usado na maioria dos projetos)
-- **Montserrat** - Fontes locais na pasta `/fonts/`
-
-### Recursos Externos
-- Imagens do Unsplash (CDN)
-- CDN do Squeleton: `https://cdn.hiperwp.com.br/`
+## Arquivo
+`projetos-links.html`
