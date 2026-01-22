@@ -590,9 +590,12 @@
             } catch (error) {
                 console.error('Erro ao buscar projetos:', error);
                 document.getElementById('loading').innerHTML = `
-                    <div class="no-results-icon">⚠️</div>
-                    <h3 class="fs-10 fw-700 m-10-b" style="color: var(--text-gray);">Erro ao carregar projetos</h3>
-                    <p style="color: var(--text-gray);">Tente recarregar a página</p>
+                    <div class="no-results-icon">🚀</div>
+                    <h3 class="fs-10 fw-700 m-10-b" style="color: var(--text-white);">Novos projetos em desenvolvimento!</h3>
+                    <p style="color: var(--text-gray); max-width: 400px; line-height: 1.6;">Estou trabalhando em novos projetos no momento. Volte em breve ou recarregue a página para ver as atualizações.</p>
+                    <button onclick="location.reload()" style="margin-top: 20px; padding: 12px 24px; background: var(--primary); color: var(--bg-dark); border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                        Recarregar Página
+                    </button>
                 `;
                 return [];
             }
@@ -616,7 +619,12 @@
             const grid = document.getElementById('projectsGrid');
             grid.innerHTML = '';
 
-            if (projects.length === 0) {
+            // Filtrar projetos válidos (evita NaN e dados incompletos)
+            const validProjects = projects.filter(project =>
+                project && project.name && typeof project.name === 'string'
+            );
+
+            if (validProjects.length === 0) {
                 document.getElementById('noResults').style.display = 'block';
                 document.getElementById('projectsGrid').style.display = 'none';
                 return;
@@ -625,11 +633,15 @@
             document.getElementById('noResults').style.display = 'none';
             document.getElementById('projectsGrid').style.display = 'flex';
 
-            projects.forEach(project => {
+            validProjects.forEach(project => {
                 const language = project.language || 'default';
                 const emoji = languageEmojis[language] || languageEmojis['default'];
                 const hasPages = hasGitHubPages(project);
                 const pagesUrl = hasPages ? getGitHubPagesUrl(project) : null;
+
+                // Garantir que os valores numéricos são válidos (evita NaN)
+                const stars = Number.isFinite(project.stargazers_count) ? project.stargazers_count : 0;
+                const forks = Number.isFinite(project.forks_count) ? project.forks_count : 0;
 
                 const card = document.createElement('div');
                 card.className = 'c-xs-12 c-sm-6 c-lg-4';
@@ -649,11 +661,11 @@
                         <div class="project-stats">
                             <div class="stat-item">
                                 <span class="iccon-star-1"></span>
-                                <span>${project.stargazers_count}</span>
+                                <span>${stars}</span>
                             </div>
                             <div class="stat-item">
                                 <span class="iccon-fork"></span>
-                                <span>${project.forks_count}</span>
+                                <span>${forks}</span>
                             </div>
                             ${project.language ? `
                                 <div class="stat-item">
